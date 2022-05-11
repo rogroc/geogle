@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<p>Click the button to get your coordinates.</p>
+
+<button onclick="getLocation()">Try It</button>
+
+<p id="demo"></p>
+
+<script>
+var x = document.getElementById("demo");
+
+function prova(data) {
+	//document.body.innerHTML = "Carregant...<br>";
+	
+	len = data.elements.length;
+	
+	for (let i = 0, len = data.elements.length; i < len; i++) {
+		
+ 		document.write(JSON.stringify(data.elements[i].adreca_nom)+"<br>");
+	}
+
+		
+	}
+
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.watchPosition(showPosition);
+  } else { 
+    x.innerHTML = "Geolocation is not supported by this browser.";
+  }
+}
+    
+function showPosition(position) {
+    let url = 'https://do.diba.cat/api/dataset/masies/ubicacio/'+position.coords.latitude+','+position.coords.longitude+'/geocamp/localitzacio/radi/2000';
+
+    x.innerHTML="Latitude: " + position.coords.latitude + 
+    "<br>Longitude: " + position.coords.longitude +
+    "<br>";
+
+fetch(url)
+  .then(res => res.json()) // the .json() method parses the JSON response into a JS object literal
+  .then(data => prova(data));
+
+}
+
+</script>
+
+</body>
+</html>
