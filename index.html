@@ -15,10 +15,11 @@ var x = document.getElementById("coords");
 var y = document.getElementById("cos");
 
 function prova(data) {
+	document.body.innerHTML = "Resultats:<br>";
 	for (let i = 0, len = data.elements.length; i < len; i++) {
 		let adreca = JSON.stringify(data.elements[i].adreca_nom);
 		let descripcio = JSON.stringify(data.elements[i].descripcio);
- 		y.innerHTML="<b>"+adreca+"</b><br>"+descripcio+"<br>";
+ 		document.write("<b>"+adreca+"</b><br>"+descripcio+"<br>");
 	}		
 	}
 
