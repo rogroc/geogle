@@ -6,21 +6,20 @@
 
 <button onclick="getLocation()">Try It</button>
 
-<p id="coords"></p>
+<p id="coords">Esperant coordenades...</p>
 	
-<p id="cos"></p>
+<p id="cos">Buscant masies...</p>
 
 <script>
 var x = document.getElementById("coords");
 var y = document.getElementById("cos");
 
 function prova(data) {
-	y.innerHTML="Resultats:<br><br>";
 	len = data.elements.length;
 	for (let i = 0, len = data.elements.length; i < len; i++) {
 		let adreca = JSON.stringify(data.elements[i].adreca_nom);
 		let descripcio = JSON.stringify(data.elements[i].descripcio);
- 		y.innerHTML="<b>"+adreca+"</b><br>"+descripcio+"<br>";
+ 		y.innerHTML="<b>"+adreca+"</b><br>"+descripcio+"<br><br>";
 	}		
 	}
 
