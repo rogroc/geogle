@@ -7,6 +7,7 @@
 <button onclick="getLocation()">Try It</button>
 
 <p id="coords"></p>
+
 <p id="cos"></p>
 
 <script>
@@ -17,7 +18,7 @@ function prova(data) {
 	for (let i = 0, len = data.elements.length; i < len; i++) {
 		let adreca = JSON.stringify(data.elements[i].adreca_nom);
 		let descripcio = JSON.stringify(data.elements[i].descripcio);
- 		x.innerHTML="<b>"+adreca+"</b><br>"+descripcio+"<br>";
+ 		y.innerHTML="<b>"+adreca+"</b><br>"+descripcio+"<br>";
 	}		
 	}
 
