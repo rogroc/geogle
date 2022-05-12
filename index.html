@@ -8,6 +8,8 @@
 
 <p id="coords"></p>
 
+<p>Resultats:</p>
+	
 <p id="cos"></p>
 
 <script>
@@ -23,9 +25,7 @@ function prova(data) {
 		let adreca = JSON.stringify(data.elements[i].adreca_nom);
 		let descripcio = JSON.stringify(data.elements[i].descripcio);
  		y.innerHTML="<b>"+adreca+"</b><br>"+descripcio+"<br>";
-	}
-
-		
+	}		
 	}
 
 function getLocation() {
