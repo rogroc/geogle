@@ -29,7 +29,10 @@ function getLocation() {
     navigator.geolocation.watchPosition(showPosition);
   } else { 
     x.innerHTML = "Geolocation is not supported by this browser.";
-  }
+  },
+
+{enableHighAccuracy: true, timeout: 20000, maximumAge: 10000}
+
 }
     
 function showPosition(position) {
