@@ -26,14 +26,14 @@ function prova(data) {
 function getLocation() {
 
   if (navigator.geolocation) {
-    navigator.geolocation.watchPosition(showPosition,, {enableHighAccuracy: true, timeout: 20000, maximumAge: 10000} );
+    navigator.geolocation.watchPosition(showPosition);
   } else { 
     x.innerHTML = "Geolocation is not supported by this browser.";
   }
 
 }
     
-function showPosition(position) {
+function showPosition(position, {enableHighAccuracy: true, timeout: 20000, maximumAge: 10000}   ) {
     let url = 'https://do.diba.cat/api/dataset/masies/ubicacio/'+position.coords.latitude+','+position.coords.longitude+'/geocamp/localitzacio/radi/500';
 
     x.innerHTML="Latitude: " + position.coords.latitude + 
