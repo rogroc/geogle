@@ -33,7 +33,7 @@ function getLocation() {
 
 }
     
-function showPosition(position, {enableHighAccuracy: true, timeout: 20000, maximumAge: 10000}   ) {
+function showPosition(position) {
     let url = 'https://do.diba.cat/api/dataset/masies/ubicacio/'+position.coords.latitude+','+position.coords.longitude+'/geocamp/localitzacio/radi/500';
 
     x.innerHTML="Latitude: " + position.coords.latitude + 
@@ -43,7 +43,6 @@ function showPosition(position, {enableHighAccuracy: true, timeout: 20000, maxim
 fetch(url)
   .then(res => res.json()) // the .json() method parses the JSON response into a JS object literal
   .then(data => prova(data));
-
 }
 
 </script>
