@@ -26,12 +26,10 @@ function prova(data) {
 function getLocation() {
 
   if (navigator.geolocation) {
-    navigator.geolocation.watchPosition(showPosition);
+    navigator.geolocation.watchPosition(showPosition,,. {enableHighAccuracy: true, timeout: 20000, maximumAge: 10000} );
   } else { 
     x.innerHTML = "Geolocation is not supported by this browser.";
-  },
-
-{enableHighAccuracy: true, timeout: 20000, maximumAge: 10000}
+  }
 
 }
     
