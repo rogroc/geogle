@@ -25,13 +25,8 @@ function prova(data) {
 
 function getLocation() {
 
-var geoOps = {
-	enableHighAccuracy: true,
-	timeout: 10000 //10 seconds
-}
-
   if (navigator.geolocation) {
-    navigator.geolocation.watchPosition(showPosition, geoOps);
+    navigator.geolocation.watchPosition(showPosition, 'enableHighAccuracy: true');
   } else { 
     x.innerHTML = "Geolocation is not supported by this browser.";
   }
