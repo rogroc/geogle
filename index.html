@@ -51,7 +51,7 @@ function showPosition(position) {
 	"<br>Longitude: " + position.coords.longitude +
 	"<br>";
 	
-	let url = 'https://do.diba.cat/api/dataset/masies/ubicacio/'+position.coords.latitude+','+position.coords.longitude+'/geocamp/localitzacio/radi/2000';
+	let url = 'https://do.diba.cat/api/dataset/masies/ubicacio/'+position.coords.latitude+','+position.coords.longitude+'/geocamp/localitzacio/radi/5000';
 	
 	fetch(url)
 	  .then(res => res.json()) // the .json() method parses the JSON response into a JS object literal
