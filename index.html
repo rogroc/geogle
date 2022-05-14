@@ -8,23 +8,39 @@
 
 <p id="coords"></p>
 
-<p id="cos"></p>
+<p id="activitats"></p>
+	
+<p id="masies"></p>
 
 <script>
 var x = document.getElementById("coords");
-var y = document.getElementById("cos");
+var y = document.getElementById("masies");
+var z = document.getElementById("activitats");
 
 const gpsopts = {enableHighAccuracy: true, timeout: 6000, maximumAge: 0};
 
 function prova(data) {
+	
+	let url = 'https://do.diba.cat/api/dataset/masies/ubicacio/'+position.coords.latitude+','+position.coords.longitude+'/geocamp/localitzacio/radi/500';
+	
 	text = '';
-	y.innerHTML = "Resultats:<br>";
+	y.innerHTML = "MASIES:<br>";
 	for (let i = 0, len = data.elements.length; i < len; i++) {
 		let adreca = JSON.stringify(data.elements[i].adreca_nom);
 		let descripcio = JSON.stringify(data.elements[i].descripcio);
  		text += "<b>"+adreca+"</b><br>"+descripcio+"<br>";
 	y.innerHTML = text;
 	}		
+	
+	text = '';
+	z.innerHTML = "ACTIVITATS:<br>";
+	for (let i = 0, len = data.elements.length; i < len; i++) {
+		let adreca = JSON.stringify(data.elements[i].adreca_nom);
+		let descripcio = JSON.stringify(data.elements[i].descripcio);
+ 		text += "<b>"+adreca+"</b><br>"+descripcio+"<br>";
+	z.innerHTML = text;
+	}		
+	
 	}
 
 function gpserror(err) {
@@ -43,8 +59,6 @@ function getLocation() {
 }
     
 function showPosition(position) {
-    let url = 'https://do.diba.cat/api/dataset/masies/ubicacio/'+position.coords.latitude+','+position.coords.longitude+'/geocamp/localitzacio/radi/500';
-
     x.innerHTML="Latitude: " + position.coords.latitude + 
     "<br>Longitude: " + position.coords.longitude +
     "<br>";
