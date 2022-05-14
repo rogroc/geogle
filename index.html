@@ -6,13 +6,10 @@
 
 <button onclick="getLocation()">Try It</button>
 
-<br>Coordenades:<br>
 <p id="coords"></p>
 
-<br>Masies:<br>
 <p id="masies"></p>
 
-<br>Activitats:<br>
 <p id="activitats"></p>
 
 <script>
@@ -28,8 +25,9 @@ function data() {
 	var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
 	var yyyy = today.getFullYear();
 
-	today = mm + '-' + dd + '-' + yyyy;
+	today = yyyy + '-' + mm + '-' + dd;
 	return today;
+	}
 
 function prova(data) {
 	
