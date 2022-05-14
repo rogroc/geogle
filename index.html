@@ -6,13 +6,13 @@
 
 <button onclick="getLocation()">Try It</button>
 
-Coordenades:
+<br>Coordenades:<br>
 <p id="coords"></p>
 
-Masies:
+<br>Masies:<br>
 <p id="masies"></p>
 
-Activitats:
+<br>Activitats:<br>
 <p id="activitats"></p>
 
 <script>
@@ -21,6 +21,15 @@ var y = document.getElementById("masies");
 var z = document.getElementById("activitats");
 
 const gpsopts = {enableHighAccuracy: true, timeout: 6000, maximumAge: 0};
+
+function data() {
+	var today = new Date();
+	var dd = String(today.getDate()).padStart(2, '0');
+	var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+	var yyyy = today.getFullYear();
+
+	today = mm + '-' + dd + '-' + yyyy;
+	return today;
 
 function prova(data) {
 	
@@ -62,8 +71,8 @@ function showPosition(position) {
 	"<br>Longitude: " + position.coords.longitude +
 	"<br>";
 	
-	let url = 'https://do.diba.cat/api/dataset/masies/ubicacio/'+position.coords.latitude+','+position.coords.longitude+'/geocamp/localitzacio/radi/500';
-
+	//let url = 'https://do.diba.cat/api/dataset/masies/ubicacio/'+position.coords.latitude+','+position.coords.longitude+'/geocamp/localitzacio/radi/500';
+	let url = 'http://api.oberta.cat/event/search?d='+today+'&geo=41.386871%2C2.170161';
 	fetch(url)
 	  .then(res => res.json()) // the .json() method parses the JSON response into a JS object literal
 	  .then(data => prova(data));
