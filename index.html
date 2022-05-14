@@ -19,16 +19,6 @@ var z = document.getElementById("activitats");
 
 const gpsopts = {enableHighAccuracy: true, timeout: 6000, maximumAge: 0};
 
-function data() {
-	var today = new Date();
-	var dd = String(today.getDate()).padStart(2, '0');
-	var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
-	var yyyy = today.getFullYear();
-
-	today = yyyy + '-' + mm + '-' + dd;
-	return today;
-	}
-
 function prova(data) {
 	
 	text = '';
@@ -40,9 +30,9 @@ function prova(data) {
 	}		
 	
 	text = '';
-	for (let i = 0, len = data.elements.length; i < len; i++) {
-		let adreca = JSON.stringify(data.elements[i].adreca_nom);
-		let descripcio = JSON.stringify(data.elements[i].descripcio);
+	for (let i = 0, len = data.events.length; i < len; i++) {
+		let adreca = JSON.stringify(data.events[i].location);
+		let descripcio = JSON.stringify(data.events[i].description);
  		text += "<b>"+adreca+"</b><br>"+descripcio+"<br>";
 	z.innerHTML = text;
 	}		
@@ -71,6 +61,7 @@ function showPosition(position) {
 	
 	//let url = 'https://do.diba.cat/api/dataset/masies/ubicacio/'+position.coords.latitude+','+position.coords.longitude+'/geocamp/localitzacio/radi/500';
 	let url = 'http://api.oberta.cat/event/search?d=2022-05-14&geo='+position.coords.latitude+'%2C'+position.coords.longitude+';
+	
 	fetch(url)
 	  .then(res => res.json()) // the .json() method parses the JSON response into a JS object literal
 	  .then(data => prova(data));
