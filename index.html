@@ -25,6 +25,11 @@ function prova(data) {
 	}		
 	}
 
+function gpserror(err) {
+    document.write('Error');
+}
+
+
 function getLocation() {
 
   if (navigator.geolocation) {
@@ -45,10 +50,6 @@ function showPosition(position) {
 fetch(url)
   .then(res => res.json()) // the .json() method parses the JSON response into a JS object literal
   .then(data => prova(data));
-}
-
-function gpsError(err) {
-    document.write('Error');
 }
 
 </script>
