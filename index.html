@@ -6,10 +6,13 @@
 
 <button onclick="getLocation()">Try It</button>
 
+Coordenades:
 <p id="coords"></p>
-	
+
+Masies:
 <p id="masies"></p>
 
+Activitats:
 <p id="activitats"></p>
 
 <script>
@@ -22,7 +25,6 @@ const gpsopts = {enableHighAccuracy: true, timeout: 6000, maximumAge: 0};
 function prova(data) {
 	
 	text = '';
-	y.innerHTML = "MASIES:<br>";
 	for (let i = 0, len = data.elements.length; i < len; i++) {
 		let adreca = JSON.stringify(data.elements[i].adreca_nom);
 		let descripcio = JSON.stringify(data.elements[i].descripcio);
@@ -31,7 +33,6 @@ function prova(data) {
 	}		
 	
 	text = '';
-	z.innerHTML = "ACTIVITATS:<br>";
 	for (let i = 0, len = data.elements.length; i < len; i++) {
 		let adreca = JSON.stringify(data.elements[i].adreca_nom);
 		let descripcio = JSON.stringify(data.elements[i].descripcio);
