@@ -60,7 +60,7 @@ function showPosition(position) {
 	"<br>";
 	
 	//let url = 'https://do.diba.cat/api/dataset/masies/ubicacio/'+position.coords.latitude+','+position.coords.longitude+'/geocamp/localitzacio/radi/500';
-	let url = 'http://api.oberta.cat/event/search?d=2022-05-14&geo='+position.coords.latitude+'%2C'+position.coords.longitude+';
+	let url = 'http://api.oberta.cat/event/search?d=2022-05-14&geo='+position.coords.latitude+'%2C'+position.coords.longitude;
 	
 	fetch(url)
 	  .then(res => res.json()) // the .json() method parses the JSON response into a JS object literal
