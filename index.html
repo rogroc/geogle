@@ -14,6 +14,8 @@
 var x = document.getElementById("coords");
 var y = document.getElementById("cos");
 
+const gpsopts = {enableHighAccuracy: true, timeout: 6000, maximumAge: 0};
+
 function prova(data) {
 	document.body.innerHTML = "Resultats:<br>";
 	for (let i = 0, len = data.elements.length; i < len; i++) {
@@ -26,7 +28,7 @@ function prova(data) {
 function getLocation() {
 
   if (navigator.geolocation) {
-    navigator.geolocation.watchPosition(showPosition);
+    navigator.geolocation.watchPosition(showPosition, gpserror, gpsopts);
   } else { 
     x.innerHTML = "Geolocation is not supported by this browser.";
   }
@@ -43,6 +45,10 @@ function showPosition(position) {
 fetch(url)
   .then(res => res.json()) // the .json() method parses the JSON response into a JS object literal
   .then(data => prova(data));
+}
+
+function gpsError(err) {
+    document.write('Error');
 }
 
 </script>
