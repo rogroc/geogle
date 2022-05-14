@@ -17,11 +17,13 @@ var y = document.getElementById("cos");
 const gpsopts = {enableHighAccuracy: true, timeout: 6000, maximumAge: 0};
 
 function prova(data) {
+	text = new '';
 	document.body.innerHTML = "Resultats:<br>";
 	for (let i = 0, len = data.elements.length; i < len; i++) {
 		let adreca = JSON.stringify(data.elements[i].adreca_nom);
 		let descripcio = JSON.stringify(data.elements[i].descripcio);
- 		document.write("<b>"+adreca+"</b><br>"+descripcio+"<br>");
+ 		text += "<b>"+adreca+"</b><br>"+descripcio+"<br>";
+	y.innerHTML = text;
 	}		
 	}
 
